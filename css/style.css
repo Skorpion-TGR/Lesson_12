@@ -1,0 +1,234 @@
+@import url(null.css);
+
+body{
+   max-width: 100%;
+   max-height: 100vh;
+   font-size: 1rem;
+   background-color: black;
+}
+
+.wrapper {
+   padding: 15em;
+   overflow: hidden;
+   /* background-color: aqua; */
+   position: relative;
+   perspective: 500px;
+   width: 100%;
+   margin: 0 auto;
+   height: 100vh;
+}
+
+.wrapper::before{
+   content: '';
+   display: inline-block;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   background: url(../img/earth.webp) 0 0 / cover no-repeat;
+   width: 80vmin;
+   height: 80vmin;
+   transform: translate(-50%, -50%);
+   filter: brightness(90%);
+   box-shadow: 
+   inset 0 0 10px 10px blue,
+   inset 0 0 100px 10px blue,
+   0 0 10px 10px blue,
+   0 0 100px 100px blue;
+   border-radius: 50%;
+}
+
+.wrapper::after{
+   content: '';
+   display: inline-block;
+   width: 200vw;
+   height: 200vh;
+   background: url(../img/earth.webp) 0 0 / cover no-repeat;
+   opacity: 1;
+   filter: blur(5px) contrast(110%) brightness(110%);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-45%, -55%);
+   z-index: -1;
+}
+
+.board {
+   background-color: gray;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   width: 52em;
+   height: 52em;
+   border: 0.125em solid black;
+   /* overflow: hidden; */
+   transform: rotateX(90deg) translate(-50%, -50%);
+}
+
+.board::before{
+   content: '';
+   display: inline-block;
+   width: 52em;
+   height: 52em;
+   background-color: blue;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: scale(2) translate3d(0, 25em, 0);
+   filter: contrast(125%) brightness(75%) blur(10em);
+   opacity: 0.9;
+}
+
+.board::after{
+   content: '';
+   display: inline-block;
+   background-color: blue;
+   width: 52em;
+   height: 52em;
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: scale(2) translate(0, -25em);
+   filter: contrast(125%) brightness(50%) blur(10em);
+   opacity: 0.9;
+}
+
+.border__wrap {
+   position: absolute;
+   min-width: 100%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.border__cells {
+   text-align: center;
+   font-size: 0;
+}
+
+.border__cell {
+   border: 0.125em solid black;
+   font-size: 1rem;
+   width: 6.25em;
+   height: 6.25em;
+   display: inline-block;
+}
+
+.border__cells:nth-child(odd) .border__cell:nth-child(odd){
+   background-color: black;
+}
+
+.border__cells:nth-child(odd) .border__cell:nth-child(even) {
+   background-color: white;
+}
+
+.border__cells:nth-child(even) .border__cell:nth-child(even) {
+   background-color: black;
+}
+
+.border__cells:nth-child(even) .border__cell:nth-child(odd) {
+   background-color: white;
+}
+
+.board__cells-numbers{
+   padding: 0.875em 0;
+}
+
+.board__cells-numbers li{
+   text-align: center;
+   line-height: 6.25em;
+   /* border: 0.125em solid black; */
+   width: 1em;
+}
+
+.left{
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+.right{
+   position: absolute;
+   top: 0;
+   right: 0;
+   transform: rotate(180deg);
+}
+
+.board__cells-letters li{
+   display: inline-block;
+   text-align: center;
+   line-height: 1em;
+   width: 6.25em;
+}
+
+.top{
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: rotate(180deg);
+}
+
+.bottom{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+img{
+   display: inline-block;
+   max-width: 100%;
+}
+
+.qeens {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -20%);
+   width: 25em;
+   height: 25em;
+   /* background-color: aqua; */
+   text-align: center;
+}
+
+[class*=qeen__]{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   filter: brightness(110%) contrast(125%);
+}
+
+.qeen__gold {
+   transform: translate(-43%, -30%) scale(0.4);
+   /* background-color: aqua; */
+}
+
+.qeen__gold::before{
+   content: '';
+   display: inline-block;
+   background: url(../img/qeen__gold.webp) 0 0 / auto 100% no-repeat;
+   width: 10em;
+   height: 15em;
+   position: absolute;
+   top: 108%;
+   left: 43%;
+   transform: translate(-47%, -30%) scale(1.4) rotate(175deg) skew(3deg, 3deg);
+   opacity: 0.5;
+   filter: blur(3px);
+}
+
+.qeen__white {
+   transform: translate(-62%, 18%) scale(0.95) rotate(10deg);
+}
+
+.qeen__white::before {
+   content: '';
+   display: inline-block;
+   background: url(../img/qeen__white.webp) 0 0 / auto 35% no-repeat;
+   width: 10em;
+   height: 15em;
+   position: absolute;
+   top: 40%;
+   left: 43%;
+   transform: translate(-25%, -58%) scale(0.85) rotate(-11deg) skew(-5deg, -5deg);
+   opacity: 0.5;
+   filter: blur(3px);
+}
